@@ -1,0 +1,14 @@
+{
+  "name": "blackjack",
+  "version": "1.0.0",
+  "description": "Blackjack game with React frontend and Node.js backend",
+  "scripts": {
+    "start": "concurrently \"cd backend && npm run dev\" \"cd frontend && npm start\"",
+    "install-all": "npm install && cd frontend && npm install && cd ../backend && npm install",
+     "build": "cd front-end && npm run build",
+     "deploy-build":"npm install && npm run build"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+} 
