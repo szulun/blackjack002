@@ -28,7 +28,7 @@ function App() {
 
   const fetchLeaderboard = async () => {
     try {
-      const res = await fetch('http://localhost:4000/api/users/leaderboard');
+      const res = await fetch('/api/users/leaderboard');
       const data = await res.json();
       // 確保 data 是數組
       setLeaderboard(Array.isArray(data) ? data : []);
@@ -40,7 +40,7 @@ function App() {
 
   const fetchUserData = async (id) => {
     try {
-      const res = await fetch(`http://localhost:4000/api/users/${id}`);
+      const res = await fetch(`/api/users/${id}`);
       const user = await res.json();
       setBalance(user.balance);
     } catch (error) {
@@ -51,7 +51,7 @@ function App() {
   const handleRegister = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch('http://localhost:4000/api/users/register', {
+      const response = await fetch('/api/users/register', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -76,7 +76,7 @@ function App() {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch('http://localhost:4000/api/users/login', {
+      const response = await fetch('/api/users/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -109,7 +109,7 @@ function App() {
     }
     setLoading(true);
     try {
-      const res = await fetch('http://localhost:4000/api/blackjack/start', {
+      const res = await fetch('/api/blackjack/start', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -138,7 +138,7 @@ function App() {
     if (!gameState?._id) return;
     setLoading(true);
     try {
-      const res = await fetch('http://localhost:4000/api/blackjack/hit', {
+      const res = await fetch('/api/blackjack/hit', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -160,7 +160,7 @@ function App() {
     if (!gameState?._id) return;
     setLoading(true);
     try {
-      const res = await fetch('http://localhost:4000/api/blackjack/stand', {
+      const res = await fetch('/api/blackjack/stand', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -185,7 +185,7 @@ function App() {
     if (!gameState?._id) return;
     setLoading(true);
     try {
-      const res = await fetch('http://localhost:4000/api/blackjack/surrender', {
+      const res = await fetch('/api/blackjack/surrender', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
