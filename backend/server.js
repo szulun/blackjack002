@@ -1,6 +1,7 @@
 require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
+const path = require('path');
 const connectDB = require('./config/db');
 
 const app = express();
@@ -16,6 +17,8 @@ app.use(express.json());
 app.use('/api/blackjack', require('./routes/blackjackRoutes'));
 app.use('/api/users', require('./routes/userRoutes'));
 
+// 加入這段來提供 frontend 的靜態檔案（注意這是關鍵）
+app.use(express.static(path.join(__dirname, '../frontend/build')));
 
 app.get('/', (req, res) => {
   res.send('Backend is running!');
